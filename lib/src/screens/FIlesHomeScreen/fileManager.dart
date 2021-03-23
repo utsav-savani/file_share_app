@@ -22,6 +22,17 @@ class FileManager extends StatelessWidget {
     "Whatsapp",
 
   ];
+
+  List<String> imageList = [
+    "assets/icons/audio.svg",
+    "assets/icons/video.svg",
+    "assets/icons/photos.svg",
+    "assets/icons/documents.svg",
+    "assets/icons/apps_icon.svg",
+    "assets/icons/messanger_icon.svg",
+    "assets/icons/whatsapp_icon.svg",
+
+  ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -69,6 +80,7 @@ class FileManager extends StatelessWidget {
                    itemCount: 5,
                    itemBuilder: (context, index) {
                    return CustomListView(
+                    // imgPath: imageList[index],
                      text: filesList[index],
                      size: size,
                    );
@@ -91,7 +103,10 @@ class CustomListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.audiotrack),
+        SvgPicture.asset(
+          "assets/icons/audio.svg",
+          height: 10,
+        ),
         CustomTextPurpleBold(text:"$text",size: size,),
         Spacer(),
         Text("200 items")
