@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "575536122941",
+    "project_id": "labstechdemos",
+    "storage_bucket": "labstechdemos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575536122941:android:774978689ca79178b32e54",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575536122941-767n49r8dpspu398capllpsgels16cdo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_firebase_auth",
+            "certificate_hash": "24bdfd42ae03f9b8c2ef3402236d141508a79898"
+          }
+        },
+        {
+          "client_id": "575536122941-dv23eihvor3vo9vktd5hr2dj4d1vpndb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8ozVMYJONbvM7Zxet7rhljuInTejV2PY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575536122941-dv23eihvor3vo9vktd5hr2dj4d1vpndb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "575536122941-5eoso8fk3i5vdrl0abuphc0ug1eql98i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterFirebaseAuth"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575536122941:android:b3175567abbecd37b32e54",
+        "android_client_info": {
+          "package_name": "com.fazconapps.file_sharing_appp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575536122941-p0pprb5f4pn9736sqv7ldaskufvl59ga.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fazconapps.file_sharing_appp",
+            "certificate_hash": "24bdfd42ae03f9b8c2ef3402236d141508a79898"
+          }
+        },
+        {
+          "client_id": "575536122941-dv23eihvor3vo9vktd5hr2dj4d1vpndb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8ozVMYJONbvM7Zxet7rhljuInTejV2PY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575536122941-dv23eihvor3vo9vktd5hr2dj4d1vpndb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "575536122941-5eoso8fk3i5vdrl0abuphc0ug1eql98i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterFirebaseAuth"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
