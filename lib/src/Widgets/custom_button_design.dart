@@ -67,6 +67,28 @@ class CustomTextPurpleBold extends StatelessWidget {
   }
 }
 
+
+class CustomTextPurpleBoldSize extends StatelessWidget {
+  final String text;
+  final Size size;
+  final Color color;
+
+  const CustomTextPurpleBoldSize({Key key, this.text, this.size, this.color})
+      : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "$text",
+      style: TextStyle(
+          color: color,
+          fontSize: size.width * 0.045,
+          fontFamily: "Georgia_bold",
+          letterSpacing: 2.0),
+    );
+  }
+}
+
+
 class CustomTextReg extends StatelessWidget {
   final String text;
   final Size size;
@@ -80,6 +102,26 @@ class CustomTextReg extends StatelessWidget {
       style: TextStyle(
           color: color,
           fontSize: size.width * 0.06,
+          fontFamily: "Georgia_reg",
+          letterSpacing: 2.0),
+    );
+  }
+}
+
+
+class CustomTextRegSize extends StatelessWidget {
+  final String text;
+  final double size;
+  final Color color;
+  const CustomTextRegSize({Key key, this.text, this.size, this.color})
+      : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "$text",
+      style: TextStyle(
+          color: color,
+          fontSize: size,
           fontFamily: "Georgia_reg",
           letterSpacing: 2.0),
     );

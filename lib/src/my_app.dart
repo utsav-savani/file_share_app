@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         title: "File Sharing Manager",
         initialRoute: "/",
         routes: {
-          "/": (context) => FileManager(),
+          "/": (context) => SplashScreen(),
           "/addPhone": (context) => AddPhone(),
           "/optVerification": (context) => OtpVerification(),
           "/homePage": (context) => HomePage(),

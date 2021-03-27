@@ -78,14 +78,15 @@ class AddPhone extends StatelessWidget {
                         Consumer<PhoneAuthProviderData>(
                           builder: (context, value, child) {
                             return TextField(
-                              // keyboardType: TextInputType.numberWithOptions(
-                              //     decimal: true),
+                               keyboardType: TextInputType.numberWithOptions(
+                                   decimal: true),
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
-                                    RegExp('[0-9.+,]')),
+                                    RegExp('[0-9.+]')),
                               ],
                               onChanged: (phone) {
-                                value.phoneClear = phone;
+                              value.phoneNumberValidator(phone);
+                              value.phoneClear = phone;
                               },
                               controller: _phoneNumberController,
                               cursorColor: Colors.grey,
@@ -97,7 +98,7 @@ class AddPhone extends StatelessWidget {
                               decoration: InputDecoration(
                                 labelText: "Enter with Country Code",
                                 labelStyle:
-                                    TextStyle(color: kSplashScreenBackColor),
+                                    TextStyle(color: kSplashScreenBackColor,fontSize: 12.0),
                                 errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                   color: value.phoneNumber.value != ""
@@ -153,9 +154,7 @@ class AddPhone extends StatelessWidget {
                           data = await call.verifyPhoneNumber(ctx).then((val) {
                             print("val :: $val");
 
-                              Toast.show("Error Please check number", context,
-                                  duration: Toast.LENGTH_SHORT,
-                                  gravity: Toast.BOTTOM);
+
 
                             //data = val;
 

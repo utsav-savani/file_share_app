@@ -4,11 +4,14 @@ import 'package:file_sharing_appp/Constants/constants.dart';
 import 'package:file_sharing_appp/provider/phone_auth_provider.dart';
 import 'package:file_sharing_appp/src/Widgets/custom_button_design.dart';
 import 'package:file_sharing_appp/src/screens/AddPhone/add_phone.dart';
+import 'package:file_sharing_appp/src/screens/HomePage/home_page.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:toast/toast.dart';
+
+import '../../../main.dart';
 
 class OtpVerification extends StatelessWidget {
   final _smsController = new TextEditingController();
@@ -136,8 +139,10 @@ class OtpVerification extends StatelessWidget {
                               print(value);
                             }
                         });
-                        Timer(Duration(seconds: 5), () {
-                          Navigator.pushNamed(context, "/homePage");
+                        channel.toString();
+                        Timer(Duration(seconds: 1), () {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage(),));
+
                         });
                       }
                     },

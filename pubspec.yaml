@@ -33,10 +33,19 @@ dependencies:
   firebase_auth:
   sms_autofill:
   provider:
+  ext_storage:
   toast:
+  path: ^1.6.4
   path_provider_ex: ^1.0.1
   flutter_file_manager: ^0.2.0
- 
+  permission_handler:
+  path_provider:
+  flutter_file_utils:
+  simple_permissions:
+  amplify_flutter: ^0.1.0
+  amplify_auth_cognito: ^0.1.0
+  amplify_storage_s3: ^0.1.0
+
   
 
 

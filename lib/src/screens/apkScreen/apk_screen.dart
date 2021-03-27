@@ -14,12 +14,12 @@ import 'package:simple_permissions/simple_permissions.dart';
 
 
 @immutable
-class MyAudioList extends StatefulWidget {
+class MyApkList extends StatefulWidget {
   @override
-  _MyAudioListState createState() => _MyAudioListState();
+  _MyApkListState createState() => _MyApkListState();
 }
 
-class _MyAudioListState extends State<MyAudioList> {
+class _MyApkListState extends State<MyApkList> {
   @override
   List<bool> _isChecked;
   Future future;
@@ -92,23 +92,23 @@ class _MyAudioListState extends State<MyAudioList> {
                         Container(
                           height: MediaQuery.of(context).size.height*0.9,
                           child: ListView.builder(
-                            shrinkWrap: true,
+                              shrinkWrap: true,
                               itemCount: snapshot.data.length,
                               itemBuilder: (context, index) => Card(
                                   child: CheckboxListTile(
 
                                     title:
 
-                                      Row(
-                                        children: [
-                                          SvgPicture.asset("assets/icons/audio.svg",height: 40,),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Text(
-                                              snapshot.data[index]),
-                                        ],
-                                      ),
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset("assets/icons/audio.svg",height: 40,),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                            snapshot.data[index]),
+                                      ],
+                                    ),
                                     value: _isChecked[index],
                                     onChanged: (val) {
                                       setState(
@@ -137,20 +137,20 @@ class _MyAudioListState extends State<MyAudioList> {
 
   _files() async {
 
-   // var path = await ExtStorage.getExternalStorageDirectory();
-    var path = await ExtStorage.getExternalStoragePublicDirectory(ExtStorage.DIRECTORY_MUSIC);
+    // var path = await ExtStorage.getExternalStorageDirectory();
+    var path = await ExtStorage.getExternalStoragePublicDirectory(ExtStorage.DIRECTORY_DOWNLOADS);
     var path0 = await ExtStorage.getExternalStorageDirectory();
 
     print(path);  // /storage/emulated/0/Pictures
     FileManager fm = new FileManager(
-      root: Directory(path)
+        root: Directory(path)
     );
     var files = await fm.filesTree(
-      extensions: ["mp3","amr","ogg"]
+        extensions: ["apk"]
     );
     var data;
     List<String> datag = [];
-  print("data is  ${files[0].absolute}");
+    print("data is  ${files[0].absolute}");
     for(var i = 0;i<files.length;i++) {
       data = files[i].toString().split('/');
       datag.add(data.last);

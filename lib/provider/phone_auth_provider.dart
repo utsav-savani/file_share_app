@@ -1,6 +1,8 @@
+
 import 'package:file_sharing_appp/Validators/validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 
 class PhoneAuthProviderData extends ChangeNotifier {
   String verificationIdBse;
@@ -9,49 +11,48 @@ class PhoneAuthProviderData extends ChangeNotifier {
   //String _phoneNumber;
   String _smsCode = "";
   String phoneErrorText = "Enter valid number";
-  bool isSentCodeDone = false;
-
-  bool getIsSentCode() => isSentCodeDone;
-
-  void setIsSendCode(value) {
-    isSentCodeDone = value;
-    notifyListeners();
-  }
 
   String get verification => verificationIdBse;
   String get smsCode => _smsCode;
   get auth => authId;
 
   set smsCl(val) {
+
     _smsCode = val;
     notifyListeners();
   }
 
   ValidationItem get phoneNumber => _phoneNumber;
 
-  void phoneNumberValidator(String value) {
-    if (value.length == 0) {
+  void phoneNumberValidator(String value){
+    if(value.length == 0)
+    {
       _phoneNumber = ValidationItem(null, "Number must not ne empty");
-    } else if (value.length != 10) {
+    }
+    else if(value.length!=10)
+    {
       _phoneNumber = ValidationItem(null, "Number must be of 10 digits only");
-    } else {
-      _phoneNumber = ValidationItem(value, null);
+    }
+    else{
+      _phoneNumber = ValidationItem(value,null);
     }
     notifyListeners();
   }
 
-  set phoneClear(val) {
-    _phoneNumber = ValidationItem(val, null);
+  set phoneClear(val){
+    _phoneNumber = ValidationItem(val,null);
     notifyListeners();
   }
 
   Future<String> verifyPhoneNumber(BuildContext ctx) async {
+
     PhoneVerificationCompleted verificationCompleted =
         (PhoneAuthCredential phoneAuthCredential) async {
       await auth.signInWithCredential(phoneAuthCredential);
       showSnackbar(
           "Phone number automatically verified and user signed in: ${auth.currentUser.uid}",
           ctx);
+
     };
     PhoneVerificationFailed verificationFailed =
         (FirebaseAuthException authException) {
@@ -77,7 +78,7 @@ class PhoneAuthProviderData extends ChangeNotifier {
     };
     try {
       await auth.verifyPhoneNumber(
-          phoneNumber: phoneNumber.value,
+          phoneNumber: "+${phoneNumber.value}",
           timeout: const Duration(seconds: 10),
           verificationCompleted: verificationCompleted,
           verificationFailed: verificationFailed,
@@ -87,10 +88,12 @@ class PhoneAuthProviderData extends ChangeNotifier {
       notifyListeners();
       return verificationIdBse;
     } catch (e) {
-      showSnackbar("error $e", ctx);
+      showSnackbar(
+          "error $e", ctx);
       notifyListeners();
       return "error";
     }
+
   }
 
   Future<String> signInWithPhoneNumber(BuildContext ctx) async {
@@ -107,10 +110,12 @@ class PhoneAuthProviderData extends ChangeNotifier {
       notifyListeners();
       return user.uid;
     } catch (e) {
-      showSnackbar("Verification failed $e", ctx);
+      showSnackbar(
+          "Verification failed $e", ctx);
       notifyListeners();
       return "error";
     }
+
   }
 
   void showSnackbar(String message, BuildContext ctx) {
@@ -121,3 +126,54 @@ class PhoneAuthProviderData extends ChangeNotifier {
     print(message);
   }
 }
+
+//
+//
+// onPressed: () async {
+// var call = context.read<PhoneAuthProviderData>();
+//
+// if (call.phoneNumber == null ||
+// call.phoneNumber.value == "") {
+// print("Enter Number");
+// } else {
+// var data;
+// data = await call.verifyPhoneNumber(ctx).then((val) {
+// print("val :: $val");
+// if(val != "next")
+// {
+// Toast.show("Error Please check number", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+// }
+// //data = val;
+// //Navigator.pushNamed(context, "/optVerification");
+// });
+//
+// print(call.phoneNumber.value);
+// print("da is ${call.verificationIdBse}");
+//
+//
+//
+// }
+// },
+//
+// onPressed: () {
+// var call = context.read<PhoneAuthProviderData>();
+//
+// if (call.smsCode == "") {
+// print("Error");
+// } else {
+// call.signInWithPhoneNumber(ctx).then((value) {
+// if(value == "error")
+// {
+// Toast.show("Error validation otp please try again", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+//
+// }
+// else
+// {
+// print(value);
+// }
+// });
+// Timer(Duration(seconds: 5), () {
+// Navigator.pushNamed(context, "/homePage");
+// });
+// }
+// },
