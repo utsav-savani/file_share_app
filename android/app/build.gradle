@@ -25,6 +25,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.android.application'
+apply plugin: 'com.amazonaws.appsync'
 
 android {
     compileSdkVersion 29
@@ -64,4 +66,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.amazonaws:aws-android-sdk-appsync:2.6.+'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
 }

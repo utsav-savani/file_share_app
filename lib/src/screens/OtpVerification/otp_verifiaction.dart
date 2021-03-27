@@ -5,6 +5,7 @@ import 'package:file_sharing_appp/provider/phone_auth_provider.dart';
 import 'package:file_sharing_appp/src/Widgets/custom_button_design.dart';
 import 'package:file_sharing_appp/src/screens/AddPhone/add_phone.dart';
 import 'package:file_sharing_appp/src/screens/HomePage/home_page.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -154,5 +155,18 @@ class OtpVerification extends StatelessWidget {
         ),
       ),
     );
+  }
+  Future<void> _getDocuments() async {
+    MethodChannel _methodChannel = MethodChannel('flutter/firebaseTokenDemo');
+    List<dynamic> documentList=[""];
+    String retrivedToken;
+    try {
+      retrivedToken = await _methodChannel.invokeMethod(
+          "firebase");
+    } on PlatformException catch(e){
+      print("exceptiong");
+    }
+
+    print("$retrivedToken");
   }
 }
